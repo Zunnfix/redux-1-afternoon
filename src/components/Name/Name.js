@@ -1,15 +1,37 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import store, { UPDATE_NAME, UPDATE_CATEGORY, UPDATE_AUTHORFIRST, UPDATE_AUTHORLAST } from '../../store';
 import "./Name.css";
 
 class Name extends Component {
   constructor(props) {
     super(props);
+    const reduxState = store.getState();
     this.state = {
-      name: '',
-      category: ''
+      authorFirst: reduxState.authorFirst,
+      authorLast: reduxState.authorLast
     };
   }
+ 
+  saveChanges() {
+    store.dispatch({
+      type: UPDATE_NAME,
+      payload: this.state.name
+    });
+    store.dispatch({
+      type: UPDATE_CATEGORY,
+      payload: this.state.category 
+    });
+    store.dispatch({
+      type: UPDATE_AUTHORFIRST,
+      payload: this.state.authorFirst 
+    });
+    store.dispatch({
+      type: UPDATE_AUTHORLAST,
+      payload: this.state.authorLast
+    });
+  }
+
   handleNameChange(nameVal) {
     this.setState({
       name: nameVal

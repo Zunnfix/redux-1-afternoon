@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import store, { UPDATE_AUTHORFIRST, UPDATE_AUTHORLAST } from '../../store';
 import './Author.css';
 
 class Author extends Component {
@@ -23,7 +24,14 @@ class Author extends Component {
     });
   }
   saveChanges() {
-    // Send data to Redux state
+    store.dispatch({
+      type: UPDATE_AUTHORFIRST,
+      payload: this.state.authorFirst
+    })
+    store.dispatch({
+      type: UPDATE_AUTHORLAST,
+      payload: this.state.authorLast
+    })
   }
   render() {
     return (

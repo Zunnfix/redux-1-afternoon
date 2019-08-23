@@ -23,19 +23,19 @@ function reducer(state=initialState, action) {
   const { type, payload } = action
   switch (type) {
     case UPDATE_NAME: 
-      return { ...state, name: payload}
+      return { ...state, name: payload }
     case UPDATE_CATEGORY: 
-      return { ...state, category: payload}
+      return { ...state, category: payload }
     case UPDATE_AUTHORFIRST: 
-      return { ...state, authorFirst: payload}
+      return { ...state, authorFirst: payload }
     case UPDATE_AUTHORLAST: 
-      return { ...state, authorLast: payload}
+      return { ...state, authorLast: payload }
     case ADD_INGREDIENT:
       const newIngredients = [...state.ingredients, payload]
-      return { ...state, ingredients: newIngredients}
+      return { ...state, ingredients: newIngredients }
     case ADD_INSTRUCTION:
       const newInstructions = [...state.instructions, payload]
-      return { ...state, instructions: newInstructions}
+      return { ...state, instructions: newInstructions }
     case ADD_RECIPE:
       const {
         name,

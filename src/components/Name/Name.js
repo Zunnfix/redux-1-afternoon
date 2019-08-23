@@ -44,7 +44,14 @@ class Name extends Component {
     });
   }
   saveChanges() {
-    // Send data to Redux state
+    store.dispatch({
+      type: UPDATE_NAME,
+      payload: this.state.name
+    });
+    store.dispatch({
+      type: UPDATE_CATEGORY,
+      payload: this.state.category
+    });
   }
   render() {
     return (
